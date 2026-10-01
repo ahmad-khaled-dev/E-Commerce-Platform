@@ -1,0 +1,139 @@
+# =========================================
+# Visual Studio
+# =========================================
+
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+
+# =========================================
+# .NET / Build Output
+# =========================================
+
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Test results
+TestResults/
+*.trx
+
+# Code coverage
+coverage/
+*.coverage
+*.coveragexml
+
+
+# =========================================
+# NuGet
+# =========================================
+
+packages/
+*.nupkg
+*.snupkg
+
+# NuGet cache
+.nuget/
+
+
+# =========================================
+# ASP.NET Core / Local Configuration
+# =========================================
+
+# Local development configuration
+appsettings.Local.json
+
+# User secrets are normally stored outside the project,
+# but ignore any local secret files if created manually.
+secrets.json
+secrets.*.json
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+
+# =========================================
+# Logs
+# =========================================
+
+*.log
+logs/
+
+
+# =========================================
+# PostgreSQL
+# =========================================
+
+# Local PostgreSQL data directories
+postgres-data/
+postgresql-data/
+
+# PostgreSQL dumps / backups
+*.dump
+*.backup
+*.bak
+
+
+# =========================================
+# Docker
+# =========================================
+
+# Docker local volumes
+docker-data/
+docker-volumes/
+
+# Docker override files are usually machine/local specific
+docker-compose.override.yml
+
+# Docker environment files
+docker-compose.override.env
+
+
+# =========================================
+# OS
+# =========================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+
+# =========================================
+# Temporary files
+# =========================================
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+
+# =========================================
+# Generated files
+# =========================================
+
+*.generated.cs
