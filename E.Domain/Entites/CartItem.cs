@@ -66,4 +66,5 @@ namespace E.Domain.Entites
             Quantity -= amount;
         }
     }
+
 }
