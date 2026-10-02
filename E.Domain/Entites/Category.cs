@@ -42,17 +42,16 @@ namespace E.Domain.Entities
                     nameof(name));
 
             Name = name;
-            Description = description;
-            ImageUrl = imageUrl;
+            Description = description?.Trim();
+            ImageUrl = imageUrl?.Trim();
             ParentId = parentId;
         }
 
 
         public void changeDescription(string description)
         {
-            if (string.IsNullOrEmpty(description))
-                throw new ArgumentNullException(nameof(description));
-            Description = description.Trim();
+          
+            Description = description?.Trim();
             UpdatedAt = DateTime.UtcNow;
         }
 
@@ -69,9 +68,6 @@ namespace E.Domain.Entities
 
         public void ChangeImage(string? imageUrl)
         {
-            if(string.IsNullOrEmpty(imageUrl))
-                throw new ArgumentNullException(nameof(imageUrl));
-
             ImageUrl = imageUrl?.Trim();
             UpdatedAt = DateTime.UtcNow;
         }
@@ -87,5 +83,6 @@ namespace E.Domain.Entities
         }
 
     }
+
 
 }

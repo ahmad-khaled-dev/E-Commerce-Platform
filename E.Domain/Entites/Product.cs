@@ -35,7 +35,8 @@ namespace E.Domain.Entites
         //public ICollection<CartItem> CartItems { get; private set; }
         //    = new List<CartItem>();
 
-        public Dictionary<string, string> Specifications { get; private set; }
+        public Dictionary<string, string>
+            Specifications { get; private set; }
             = new();
 
         private Product()
@@ -86,6 +87,9 @@ namespace E.Domain.Entites
 
         public void AddImage(string imageUrl, bool isMain = false)
         {
+            if (string.IsNullOrWhiteSpace(imageUrl))
+                throw new ArgumentException("Image URL is required.");
+
 
             if (isMain)
             {
@@ -93,8 +97,6 @@ namespace E.Domain.Entites
                     img.RemoveAsMain();
             }
 
-            if (string.IsNullOrWhiteSpace(imageUrl))
-                throw new ArgumentException("Image URL is required.");
             var image = new ProductImage(imageUrl, isMain);
           
             
