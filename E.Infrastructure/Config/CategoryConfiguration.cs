@@ -24,7 +24,7 @@ namespace E.Infrastructure.Config
                 .HasMaxLength(500);
 
             builder.HasOne(c => c.ParentCategory)
-                   .WithMany(c => c.SubCategories)
+                   .WithMany()
                    .HasForeignKey(c => c.ParentId)
                    .OnDelete(DeleteBehavior.Restrict);
             

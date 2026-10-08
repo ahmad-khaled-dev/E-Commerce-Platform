@@ -14,11 +14,21 @@ namespace E.Infrastructure.Config
             builder.Property(c => c.UserId)
                 .IsRequired();
 
+
+            builder.HasIndex(c => c.UserId)
+                .IsUnique();
+
             builder.HasOne<ApplicationUser>()
                    .WithOne()
                    .HasForeignKey<Cart>(c => c.UserId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Navigation(c => c.Items)
+                   .UsePropertyAccessMode(PropertyAccessMode.Field)
+                 ;
         }
+         
     }
 
 }

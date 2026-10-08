@@ -1,7 +1,8 @@
 ﻿using E.Domain.Entites;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
- 
+using Microsoft.EntityFrameworkCore.Metadata.Conventions.Infrastructure;
+
 
 
 
@@ -19,13 +20,13 @@ namespace E.Infrastructure.config
                 .HasMaxLength(100);
 
             builder.HasOne(p => p.Category)
-                   .WithMany(c => c.Products)
+                   .WithMany()
                    .HasForeignKey(p => p.CategoryId)
                    .OnDelete(DeleteBehavior.Restrict)
                    ;
 
             builder.HasOne(p => p.Brand)
-                     .WithMany(b => b.Products)
+                     .WithMany()
                      .HasForeignKey(p => p.BrandId)
                      .OnDelete(DeleteBehavior.Restrict)
                      ;
@@ -38,9 +39,11 @@ namespace E.Infrastructure.config
                    .HasColumnType("jsonb");
 
 
-             
 
 
+            builder.Navigation(p => p.Images)
+                   .UsePropertyAccessMode(PropertyAccessMode.Field)
+                  ;
 
         }
 

@@ -29,8 +29,11 @@ namespace E.Domain.Entites
 
         public Brand Brand { get; private set; } = null!;
 
-        public ICollection<ProductImage> Images { get; private set; }
-            = new List<ProductImage>();
+
+        private List<ProductImage> _images = new();
+
+        public IReadOnlyCollection<ProductImage> Images => _images.AsReadOnly();
+         
 
         //public ICollection<CartItem> CartItems { get; private set; }
         //    = new List<CartItem>();
@@ -48,7 +51,8 @@ namespace E.Domain.Entites
             decimal price,
             int categoryId,
             int brandId,
-            string? description = null)
+            string? description = null
+            )
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Product name is required.");
@@ -100,7 +104,7 @@ namespace E.Domain.Entites
             var image = new ProductImage(imageUrl, isMain);
           
             
-            Images.Add(image);
+            _images.Add(image);
             UpdatedAt = DateTime.UtcNow;
         }
 
@@ -126,7 +130,7 @@ namespace E.Domain.Entites
             if (image == null)
                 throw new ArgumentException("Image not found.");
 
-            Images.Remove(image);
+            _images.Remove(image);
 
             UpdatedAt = DateTime.UtcNow;
         }

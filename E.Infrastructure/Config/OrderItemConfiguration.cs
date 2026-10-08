@@ -21,19 +21,14 @@ namespace E.Infrastructure.Config
             builder.ToTable(t =>
             {
                 t.HasCheckConstraint(
-                   "CK_OrderItem_Quantity_NonNegative",
-                    "Quantity >= 0");
-
+                    "CK_OrderItem_Quantity_Positive",
+                    "\"Quantity\" > 0");
             });
 
             builder.Property(oi => oi.UnitPrice)
                    .IsRequired()
                    .HasPrecision(18, 2);
-
-            builder.Property(oi => oi.TotalPrice)
-                   .IsRequired()
-                   .HasPrecision(18, 2);
-
+             
             builder.Ignore(oi => oi.TotalPrice);
 
             builder.HasOne(oi => oi.Order)

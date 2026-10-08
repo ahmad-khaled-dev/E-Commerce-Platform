@@ -8,10 +8,7 @@ namespace E.Domain.Entities
     {
          
         public string Name { get; private set; } = null!;
-
-
-       
-
+        
         public string? Description { get; private set; }
 
         public int? ParentId { get; private set; }
@@ -19,13 +16,7 @@ namespace E.Domain.Entities
         public string? ImageUrl { get; private set; }
 
         public Category? ParentCategory { get; private set; }
-
-        public ICollection<Category> SubCategories { get; private set; }
-            = new List<Category>();
-         
-        public ICollection<Product> Products { get; private set; }
-            = new List<Product>();
-
+          
         private Category()
         {
         }
@@ -41,14 +32,14 @@ namespace E.Domain.Entities
                     "Category name is required.",
                     nameof(name));
 
-            Name = name;
+            Name = name.Trim();
             Description = description?.Trim();
             ImageUrl = imageUrl?.Trim();
             ParentId = parentId;
         }
 
 
-        public void changeDescription(string description)
+        public void ChangeDescription(string? description)
         {
           
             Description = description?.Trim();

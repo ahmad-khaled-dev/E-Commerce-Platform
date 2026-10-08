@@ -11,8 +11,9 @@ namespace E.Domain.Entites
 
         public int UserId { get; private set; }
 
-        public ICollection<CartItem> Items { get; private set; }
-            = new List<CartItem>();
+        private List<CartItem> _items = new List<CartItem>();
+
+        public IReadOnlyCollection<CartItem> Items => _items.AsReadOnly();
 
         private Cart()
         {
@@ -51,7 +52,7 @@ namespace E.Domain.Entites
             }
 
              
-            Items.Add(new CartItem(productId, quantity));
+            _items.Add(new CartItem(productId, quantity));
             
         }
 
@@ -70,7 +71,7 @@ namespace E.Domain.Entites
                     "Product does not exist in the cart.");
         
             
-            Items.Remove(item);
+            _items.Remove(item);
          }
 
 
@@ -89,7 +90,7 @@ namespace E.Domain.Entites
         }
 
 
-        public CartItem GetItem (int productId)
+        private CartItem GetItem (int productId)
         {
             if (productId <= 0)
                 throw new ArgumentException(

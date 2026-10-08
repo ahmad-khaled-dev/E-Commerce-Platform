@@ -1,5 +1,5 @@
 ﻿using E.Domain.Common;
- 
+
 
 
 namespace E.Domain.Entites

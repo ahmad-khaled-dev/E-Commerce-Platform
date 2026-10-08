@@ -27,13 +27,15 @@ namespace E.Infrastructure.Config
                 .IsRequired()
                 ;
 
-            builder.ToTable(t =>
-            {
-                t.HasCheckConstraint(
-                    "CK_Inventory_Quantity_NonNegative",
-                    "Quantity >= 0");
-                 
-            });
+             
+                builder.ToTable(t =>
+                {
+                    t.HasCheckConstraint(
+                        "CK_Inventory_Quantity_NonNegative",
+                        "\"Quantity\" >= 0");
+                });
+
+             
         }
     }
 

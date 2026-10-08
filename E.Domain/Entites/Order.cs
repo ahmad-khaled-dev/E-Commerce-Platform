@@ -13,7 +13,10 @@ namespace E.Domain.Entites
          
         public OrderStatus Status { get; private set; } = OrderStatus.Pending;
         public decimal TotalAmount { get; private set; }
-        public ICollection<OrderItem> OrderItems { get; private set; } = new List<OrderItem>();
+
+        private List<OrderItem> _orderItems = new List<OrderItem>();
+
+        public IReadOnlyCollection<OrderItem> OrderItems => _orderItems.AsReadOnly();
     
         
         
@@ -47,7 +50,7 @@ namespace E.Domain.Entites
                 unitPrice,
                 quantity);
 
-            OrderItems.Add(item);
+            _orderItems.Add(item);
 
             RecalculateTotal();
             UpdatedAt = DateTime.UtcNow;
