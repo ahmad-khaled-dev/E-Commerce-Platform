@@ -55,4 +55,5 @@ namespace E.Domain.Entites
             UpdatedAt = DateTime.UtcNow;
         }
     }
+
 }

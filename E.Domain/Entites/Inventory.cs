@@ -16,12 +16,11 @@ namespace E.Domain.Entites
 
         private Inventory() { }
 
-        public Inventory(int productId, int quantity)
+        public Inventory( int quantity)
         { 
             if(quantity <0)
                 throw new ArgumentException("Quantity cannot be negative.", nameof(quantity));
 
-            ProductId = productId;
             Quantity = quantity;
         }
 

@@ -12,9 +12,7 @@ namespace E.Domain.Entites
     {
         public string Name { get; private set; } = null!;
 
-        public ICollection<Product> Products { get; private set; }
-            = new List<Product>();
-
+         
         private Brand() { }
 
         public Brand(string name)
