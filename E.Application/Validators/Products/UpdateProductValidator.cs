@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace E.Application.Validators.Products
 {
-    public class UpdateProductValidator : ProductBaseValidator<UpdateProductDto>
+    /*public class UpdateProductValidator : ProductBaseValidator<UpdateProductDto>
     {
         public UpdateProductValidator() : base()
         {
@@ -11,5 +11,5 @@ namespace E.Application.Validators.Products
             RuleFor(x => x.Id)
                 .GreaterThan(0).WithMessage("معرف المنتج غير صحيح");
         }
-    }
+    }*/
 }

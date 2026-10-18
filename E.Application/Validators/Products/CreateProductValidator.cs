@@ -3,11 +3,11 @@ using FluentValidation;
 
 namespace E.Application.Validators.Products
 {
-    public class CreateProductValidator : ProductBaseValidator<CreateProductDto>
+  /*  public class CreateProductValidator : ProductBaseValidator<CreateProductDto>
     {
         public CreateProductValidator() : base()
         {
              
         }
-    }
+    }*/
 }
