@@ -24,4 +24,5 @@ namespace E.Application.DTOs.Products
 
         public int Stock { get; set; } = 0;
     }
+
 }

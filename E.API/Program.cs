@@ -9,6 +9,8 @@ var config = builder.Configuration.AddJsonFile("appsettings.json")
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
+
+
 var app = builder.Build();
 
 

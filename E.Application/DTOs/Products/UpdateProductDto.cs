@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E.Application.DTOs.Products
 {
-    public sealed record UpdateProductDto : IProductDto
+    public sealed record UpdateProductDto
     {
         public int Id { get; set; }
  
@@ -22,4 +22,5 @@ namespace E.Application.DTOs.Products
         public bool IsActive { get; set; } = true;
 
     }
+
 }
